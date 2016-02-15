@@ -9,7 +9,7 @@ amigos = []
 ## Preenche a lista de amigos que vão participar do sorteio
 qtd_amigos = int(input("Quantos amigos seu grupo possui? "))
 for i in range(qtd_amigos):
-    amigo = input("Qual o nome do %dº amigo? " % (i+1))
+    amigo = input("Qual o nome do {0}º amigo? ".format(i+1))
     amigos.append({'id': i+1, 'nome': amigo})
 
 ## Inicializa a lista onde ficará o resultado do sorteio
@@ -59,7 +59,7 @@ while len(sorteio) != qtd_amigos:
 
         sortear(amigos[rodada], amigos, sorteados, sorteio, contador)
 
-#abre arquivo txt de resultado e escreve "Resultado do sorteio nele"
+## Abre arquivo txt de resultado e escreve "Resultado do sorteio nele"
 file = open("resultado.txt", "w")
 file.write("Resultado do sorteio: \n")
 
@@ -79,12 +79,14 @@ for rodada in sorteio:
     elif platform == 'win32' or platform == 'cygwin':
         os.system("cls")
 
-    input("Por favor, chame o amigo %s e pressione ENTER para ver quem ele sorteou." % sorteante)
-    input("Você sorteou o amigo: %s\n\nPressione ENTER para continuar." % sorteado)
+    input("Por favor, chame o amigo {0} e pressione ENTER para ver quem ele sorteou.".format(sorteante))
+    input("Você sorteou o amigo: {0}\n\nPressione ENTER para continuar.".format(sorteado))
 
-    #escreve no arquivo resultado.txt "Fulando sorteou Ciclano"
+    ## Escreve no arquivo resultado.txt "Fulando sorteou Ciclano"
     file.write("{0} sorteou {1}\n" .format(sorteante, sorteado))
 
-    print("Sorteio encerrado. Divirta-se!")
+## Fecha o arquivo resultado.txt
+file.close()
+print("Sorteio encerrado. Divirta-se!")
 
 
