@@ -59,6 +59,10 @@ while len(sorteio) != qtd_amigos:
 
         sortear(amigos[rodada], amigos, sorteados, sorteio, contador)
 
+#abre arquivo txt de resultado e escreve "Resultado do sorteio nele"
+file = open("resultado.txt", "w")
+file.write("Resultado do sorteio: \n")
+
 ## Divulga o resultado do sorteio
 for rodada in sorteio:
     for amigo in amigos:
@@ -78,4 +82,9 @@ for rodada in sorteio:
     input("Por favor, chame o amigo %s e pressione ENTER para ver quem ele sorteou." % sorteante)
     input("Você sorteou o amigo: %s\n\nPressione ENTER para continuar." % sorteado)
 
+    #escreve no arquivo resultado.txt "Fulando sorteou Ciclano"
+    file.write("{0} sorteou {1}\n" .format(sorteante, sorteado))
+
     print("Sorteio encerrado. Divirta-se!")
+
+
